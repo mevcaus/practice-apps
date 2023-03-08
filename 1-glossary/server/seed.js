@@ -1,6 +1,6 @@
-const glossary = require('./db')
+const glossary = require('./db');
 
-const dictionary = {
+const dictionary = [
     {
         word: 'Mo',
         definition: 'handsome'
@@ -38,21 +38,14 @@ const dictionary = {
         definition: 'hmmmmugh'
     },
 
-}
+]
 let seed = () => {
-    const promises = dictionary.map(word => {
-        const newWord = new glossary({
-            word: word.word,
-            definition: word.definition,
-        });
-        return newWord.save();
-    })
-
-    return Promise.all(promises)
-    .then(() => {
-        console.log('logged all words into dictionary')
-    })
-    .catch(err => {
-        console.log('err saving all words to dic', err)
-    })
+    glossary.insertMany(dictionary)
+        .then(response => {
+        console.log('all words saved')
+        })
+        .catch(err => {
+            console.log('err saving words\n', err)
+        })
 }
+seed();

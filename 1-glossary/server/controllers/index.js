@@ -6,7 +6,6 @@ module.exports = {
     get: (req, res) => {
         // see if req.body has a filter
         // ask model for all records
-        console.log('request from controllers\n', req.body)
         // console.log('response from controllers\n', response)
         model.getAll()
             .then(response => {
@@ -14,13 +13,35 @@ module.exports = {
             })
             .catch(err => {
                 console.log('err getting from model\n', err)
+                res.sendStatus(500);
             })
     },
     post: (req, res) => {
         // add to model
+        let word = req.body.word;
+        let definition = req.body.definition;
+        model.post(word, definition)
+            .then(response => {
+                res.send(201);
+            })
+            .catch(err => {
+                console.log('err posting to db\n', err);
+                res.sendStatus(500);
+            })
     },
     patch: (req, res) => {
         // update model
+        let replacedID = req.body.id;
+        let word = req.body.word;
+        let definition = req.body.definition;
+        model.patch(replacedID, word, definition)
+            .then(response => {
+                res.send(201);
+            })
+            .catch(err => {
+                console.log('err posting to db\n', err);
+                res.sendStatus(500);
+            })
     },
     delete: (req, res) => {
         // delete a record
