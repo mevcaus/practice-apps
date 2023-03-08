@@ -18,7 +18,8 @@ module.exports = {
         // update model
         return glossary.updateOne({_id: id}, {$set: {word: word, definition: definition}})
     },
-    delete: (req, res) => {
+    delete: (id) => {
         // delete a record
+        return glossary.deleteOne({_id: id})
     }
 }

@@ -45,5 +45,14 @@ module.exports = {
     },
     delete: (req, res) => {
         // delete a record
+        let id = req.body.id;
+        model.delete(id)
+            .then(response => {
+                res.send(202);
+            })
+            .catch(err => {
+                console.log('err deleting from server\n', err);
+                res.sendStatus(500);
+            })
     }
 }
