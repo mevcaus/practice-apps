@@ -1,11 +1,11 @@
-const WordItem = ( { id, word, definition } ) => {
-
+const WordItem = ( {id, word, definition } ) => {
     return (
-        <td key={id}>{word}</td>
-        <td>{definition}</td>
+        <div>
+            <p>{word}</p>
+            <p>{definition}</p>
+        </div>
     )
 }
-
 
 
 export default WordItem;
