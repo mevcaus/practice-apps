@@ -60,7 +60,8 @@ const App = () => {
             })
     }
     const handleDeleteClick = (wordID) => {
-        axios.delete({id: wordID})
+        console.log(wordID)
+        axios.delete(url, {id: wordID})
             .then(response => {
                 axios.get(url)
                     .then(response => {

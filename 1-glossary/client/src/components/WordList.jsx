@@ -1,19 +1,23 @@
 import WordItem from './WordItem.jsx'
 
-const WordList = ( { words } ) => {
+const WordList = ( { words, handleEditClick, handleDeleteClick} ) => {
     const editClick = (wordID) => {
+        // add pop up form to grab new values
 
+        // handleEditClick(wordID, newWord, newDefiniction);
     }
     const deleteClick = (wordID) => {
-
+        handleDeleteClick(wordID);
     }
     return (
         <div>
             {words.map(word => {
                 return (
-                    <WordItem id={word._id} word={word.word} definition={word.definition} />
-                    // <button onClick={editClick}>edit</button>
-                    // <button onClick={deleteClick}>delete</button>
+                    <div>
+                        <WordItem id={word._id} word={word.word} definition={word.definition} />
+                        <button onClick={() => editClick(word._id)}>edit</button>
+                        <button onClick={() => deleteClick(word._id)}>delete</button>
+                    </div>
                 )
             })}
         </div>
