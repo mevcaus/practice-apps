@@ -2,11 +2,9 @@ import WordItem from './WordItem.jsx'
 import { useState } from 'react'
 const WordList = ( { words, handleEditClick, handleDeleteClick} ) => {
 
-    const [showForm, setShowForm] = useState(false);
-    const editClick = (wordID) => {
-        // add pop up form to grab new values
 
-        // handleEditClick(wordID, newWord, newDefiniction);
+    const editClick = (wordID) => {
+        handleEditClick(wordID);
     }
     const deleteClick = (wordID) => {
         handleDeleteClick(wordID);

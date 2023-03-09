@@ -6,7 +6,8 @@ import WordList from './WordList.jsx'
 const App = () => {
     const url = 'http://localhost:3000/glossary';
     const [wordList, setWordList] = useState([]);
-    const [trueWordList, setTrueWordList] = useState([])
+    const [trueWordList, setTrueWordList] = useState([]);
+
     useEffect(() => {
         axios.get(url)
         .then(response => {
@@ -44,7 +45,9 @@ const App = () => {
             }))
         }
     }
-    const handleEditClick = (wordID, word, definition) => {
+    const handleEditClick = (wordID) => {
+        let word = window.prompt('edit the word')
+        let definition = window.prompt('edit the definition')
         axios.patch(url, {id: wordID, word: word, definition: definition})
             .then(response => {
                 axios.get(url)
