@@ -46,6 +46,7 @@ module.exports = {
     delete: (req, res) => {
         // delete a record
         let id = req.body.id;
+        console.log('id from controller\n', id);
         model.delete(id)
             .then(response => {
                 res.send(202);

@@ -49,7 +49,7 @@ const App = () => {
             .then(response => {
                 axios.get(url)
                     .then(response => {
-                        console.log('successfully edited');
+                        setWordList(response.data);
                     })
                     .catch(err => {
                         console.log('err getting after patch in react\n', err)
@@ -61,11 +61,11 @@ const App = () => {
     }
     const handleDeleteClick = (wordID) => {
         console.log(wordID)
-        axios.delete(url, {id: wordID})
+        axios.delete(url, {data: {id: wordID} })
             .then(response => {
                 axios.get(url)
                     .then(response => {
-                        console.log('successfully deleted')
+                        setWordList(response.data);
                     })
                     .catch(err => {
                         console.log('err getting after delete in react\n', err)

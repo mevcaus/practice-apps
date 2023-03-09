@@ -20,6 +20,7 @@ module.exports = {
     },
     delete: (id) => {
         // delete a record
+        console.log('id from model\n', id);
         return glossary.deleteOne({_id: id})
     }
 }
