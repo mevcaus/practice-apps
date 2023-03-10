@@ -3,8 +3,6 @@ CREATE DATABASE checkout;
 
 USE checkout;
 
-
-
 CREATE TABLE address (
     id INT NOT NULL AUTO_INCREMENT,
     lineOne VARCHAR(50),

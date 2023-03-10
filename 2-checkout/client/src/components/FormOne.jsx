@@ -6,15 +6,9 @@ const FormOne = ( { handleResponsesChange } ) => {
     };
     return (
         <form onChange={handleChange}>
-            name: <input name="username">
-
-            </input>
-            email: <input name="email" type='email'>
-
-            </input>
-            password: <input name="password" type='password'>
-
-            </input>
+            name: <input name="username"></input>
+            email: <input name="email" type='email'></input>
+            password: <input name="password" type='password'></input>
         </form>
     )
 }

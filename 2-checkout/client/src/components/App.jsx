@@ -56,7 +56,7 @@ const App = () => {
     const handleSubmitForm = () => {
         if (currentForm === 4) {
             axios.post(url, {
-                name: responsesState.name,
+                name: responsesState.username,
                 email: responsesState.email,
                 password: responsesState.password,
                 lineOne: address.lineOne,
@@ -91,26 +91,24 @@ const App = () => {
             }
             {currentForm === 4 &&
             <div>
-            name: {responsesState.name},
-            email: {responsesState.email},
-            password: {responsesState.password},
-            lineOne: {address.lineOne},
-            lineTwo: {address.lineTwo},
-            city: {address.city},
-            state: {address.state},
-            zipCode: {address.zipCode},
-            phoneNumber: {address.phoneNumber},
-            ccNum: {payment.ccNum},
-            expDate: {payment.expDate},
-            cvv: {payment.cvv},
-            billingZip: {payment.billingZip}
+                name: {responsesState.username}<br />
+                email: {responsesState.email}<br />
+                password: {responsesState.password}<br />
+                lineOne: {address.lineOne}<br />
+                lineTwo: {address.lineTwo}<br />
+                city: {address.city}<br />
+                state: {address.state}<br />
+                zipCode: {address.zipCode}<br />
+                phoneNumber: {address.phoneNumber}<br />
+                ccNum: {payment.ccNum}<br />
+                expDate: {payment.expDate}<br />
+                cvv: {payment.cvv}<br />
+                billingZip: {payment.billingZip}
             </div>
             }
             <button onClick={handleSubmitForm}>{!currentForm ? 'Checkout' : currentForm === 4 ? 'Purchase' : 'Next'}</button>
-
         </div>
     )
-
 }
 
 export default App;
