@@ -9,13 +9,6 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(router);
-/****
- *
- *
- * Other routes here....
- *
- *
- */
 
 app.set('port', process.env.PORT || 4242)
 app.listen(app.get('port'), () => {
